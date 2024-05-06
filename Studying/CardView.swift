@@ -19,7 +19,7 @@ struct CardView: View {
                 
                     .foregroundColor(.orange)
                 Text("🤪")
-                    .font(Font.system(size: 50))
+                    .font(Font.system(size: 40))
             }else{
                 RoundedRectangle(cornerRadius: 12)
                     .foregroundColor(.orange)
