@@ -15,7 +15,8 @@ struct CardView: View {
         ZStack{
             if faceUp{
                 RoundedRectangle(cornerRadius: 12)
-                    .strokeBorder(style: StrokeStyle(lineWidth: 10,dash: [10,2]))
+//                    .strokeBorder(style: StrokeStyle(lineWidth: 10,dash: [10,2]))
+                
                     .foregroundColor(.orange)
                 Text("🤪")
                     .font(Font.system(size: 50))
