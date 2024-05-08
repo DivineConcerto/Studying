@@ -8,18 +8,16 @@
 import Foundation
 
 
-
-
 func createCardContent(forPairAtIndex index:Int) -> String{
-    return ["🥰","😜","🤪","🥳","🤩","😇","😅"][index]
+    return ["🥰","😜","🤪","🥳","🤩","😇","😅","😘","😍","😎"][index]
 }
 
-class EmojisMemorizeGame{
+class EmojisMemorizeGame:ObservableObject{
     
-    private static let emojis = ["🥰","😜","🤪","🥳","🤩","😇","😅"]
+    private static let emojis = ["🥰","😜","🤪","🥳","🤩","😇","😅","😘","😍","😎"]
     
     private static func createMemoryGame() -> MemorizeGame<String>{
-        return MemorizeGame(numberOfPairsOfCards: 4){ pairIndex in
+        return MemorizeGame(numberOfPairsOfCards: 10){ pairIndex in
             if emojis.indices.contains(pairIndex){
                 return emojis[pairIndex]
             }else{
@@ -29,10 +27,16 @@ class EmojisMemorizeGame{
         }
     }
     
-    private var model = createMemoryGame()
+    @Published private var model = createMemoryGame()
     
     var cards:Array<MemorizeGame<String>.Card>{
         return model.cards
+    }
+    
+    // MARK: - Intents
+    
+    func shuffle(){
+        model.shuffle()
     }
     
     func choose(_ card:MemorizeGame<String>.Card){
